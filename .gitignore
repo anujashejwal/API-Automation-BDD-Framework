@@ -1,0 +1,17 @@
+# Virtual environment
+.venv/
+
+# Allure reports
+AllureReports/
+AllureHTML/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE files
+.idea/
+.vscode/
+
+# System files
+.DS_Store

@@ -34,3 +34,5 @@ def getQuery(query):
     row = cursor.fetchone()
     conn.close()
     return row
+
+#Purpose: Reads properties.ini and provides base URL, credentials, etc. to the tests

@@ -27,7 +27,10 @@ expectedBook = {
 
 assert actualBook == expectedBook
 
+#Purpose: Common assertion functions (status code checks, response field checks)
 
+#What problem does it solve->
+#Imagine you have a Library API — endpoints for adding books, fetching them, updating them, deleting them. Instead of manually clicking in Postman every time, your framework runs those tests automatically and gives you a nice report.
 
 #Feature files → what to test (business language)
 #stepImpl.py → how to test it (Python logic)
@@ -38,7 +41,8 @@ assert actualBook == expectedBook
 #How to run:
 #pip install -r requirements.txt
 #behave
-#For Allure reports: behave -f allure_behave.formatter:AllureFormatter -o AllureReports allure serve AllureReports
+#For Allure reports: behave -f allure_behave.formatter:AllureFormatter -o AllureReports
+#to see Report dashboard: allure serve AllureReports
 
 
 

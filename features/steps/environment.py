@@ -32,3 +32,4 @@ def after_scenario(context, scenario):
         print(res_json["msg"])
         assert res_json["msg"] == "book is successfully deleted"
 
+#Purpose: Setup/teardown hooks — code that runs before/after each scenario or feature

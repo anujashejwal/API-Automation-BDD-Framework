@@ -90,3 +90,5 @@ def step_impl(context):
     )
     response_json = context.response.json()
     assert response_json["Msg"] == "successfully added"
+
+#Purpose: Python code that maps each Gherkin step to actual HTTP calls

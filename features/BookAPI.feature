@@ -18,6 +18,6 @@ Feature: Verify if Books are added and deleted using Library API
         | fdfee| 8948   |
         | powr | 76333  |
 
-
+#Purpose: Test scenarios written in plain English (Gherkin) for the Library/Book API
 
 

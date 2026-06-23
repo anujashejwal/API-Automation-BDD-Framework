@@ -4,3 +4,5 @@ class ApiResources:
 
     # Public GitHub endpoint (safe)
     githubRepo = "https://api.github.com/users/anujashejwal/repos"
+
+#Purpose: Stores all API endpoint paths in one place

@@ -21,3 +21,5 @@ def buildPayLoadFromDB(query):
     addBody['aisle'] = tp[2]
     addBody['author'] = tp[3]
     return addBody
+
+#Purpose: JSON request bodies for POST/PUT calls

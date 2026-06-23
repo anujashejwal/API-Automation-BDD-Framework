@@ -29,7 +29,16 @@ assert actualBook == expectedBook
 
 
 
+#Feature files → what to test (business language)
+#stepImpl.py → how to test it (Python logic)
+#utilities/ → configuration and reusable resources
+#payLoad.py → test data
+#apiValidations.py → assertion logic
 
+#How to run:
+#pip install -r requirements.txt
+#behave
+#For Allure reports: behave -f allure_behave.formatter:AllureFormatter -o AllureReports allure serve AllureReports
 
 
 

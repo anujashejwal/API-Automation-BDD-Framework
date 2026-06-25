@@ -1,32 +1,36 @@
 import requests
-import json
 
-response = requests.get('http://216.10.245.166/Library/GetBook.php',
-             params={'AuthorName':'Rahul Shetty'},)
-# print(response.text)
-# print(type(response.text))
-# dict_response = json.loads(response.text)
-# print(dict_response[0]['isbn'])
-json_response = response.json()
-print(type(json_response))
-print(json_response[0]['isbn'])
-assert response.status_code == 200
-print(response.headers)
-assert response.headers['Content-Type'] == 'application/json;charset=UTF-8'
-# Retrieve the book details with ISBN RGHCC
-for actualBook in json_response:
-    if actualBook['isbn'] == 'RGHCC':
-        print(actualBook)
-        break
+BASE_URL = "http://216.10.245.166/Library"
 
-expectedBook = {
-        "book_name": "Learn API Automation with RestAssured",
-        "isbn": "RGHCC",
-        "aisle": "12239"
-    }
+def get_books_by_author(author_name):
+    response = requests.get(
+        f"{BASE_URL}/GetBook.php",
+        params={"AuthorName": author_name}
+    )
+    return response
 
-assert actualBook == expectedBook
+def assert_status_code(response, expected_code):
+    assert response.status_code == expected_code, \
+        f"Expected {expected_code}, got {response.status_code}"
 
+def assert_content_type_json(response):
+    assert "application/json" in response.headers["Content-Type"], \
+        f"Expected JSON, got {response.headers['Content-Type']}"
+
+def assert_response_time(response, max_ms=2000):
+    actual_ms = response.elapsed.total_seconds() * 1000
+    assert actual_ms < max_ms, \
+        f"Response too slow: {actual_ms:.0f}ms (limit {max_ms}ms)"
+
+def assert_book_exists(json_response, isbn, expected_book):
+    found = False
+    for book in json_response:
+        if book["isbn"] == isbn:
+            found = True
+            assert book == expected_book, \
+                f"Book mismatch for ISBN {isbn}: {book}"
+            break
+    assert found, f"Book with ISBN {isbn} not found in response"
 #Purpose: Common assertion functions (status code checks, response field checks)
 
 #What problem does it solve->
